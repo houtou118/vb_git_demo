@@ -1,5 +1,5 @@
 name: vb_git_helper
-description: VB App 项目分支管理命令行工具
+description: VB App git cli tool
 version: 1.0.0
 # repository: https://github.com/my_org/my_repo
 
