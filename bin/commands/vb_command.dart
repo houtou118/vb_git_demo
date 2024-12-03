@@ -41,6 +41,8 @@ List<String> getProjectNames(String type) {
     return vbBisProjectNames;
   } else if (type == 'plugin') {
     return vbPluginProjectNames;
+  } else if (type == 'ft') {
+    return ftProjectNames;
   } else {
     return vbProjectNames;
   }

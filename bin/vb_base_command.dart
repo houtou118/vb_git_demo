@@ -21,14 +21,14 @@ abstract class VbBaseCommand<String> extends Command<String> {
 
   /// 添加通用选项
   void addCommonOptions() {
-    argParser.addOption('type', abbr: 't', help: '仓库类型 (all, bis, plugin)');
+    argParser.addOption('type', abbr: 't', help: '仓库类型 (all, bis, plugin, ft)');
     argParser.addOption('name', abbr: 'n', help: '分支名称');
   }
 
   VbArgModel setupBaseValidate() {
     final type = argResults?['type'];
     if (type == null || type.isEmpty) {
-      print('$red错误: 必须提供 --type 参数来指定仓库类型(all, bis, plugin) $reset');
+      print('$red错误: 必须提供 --type 参数来指定仓库类型(all, bis, plugin, ft) $reset');
     }
 
     //检查是否提供了 `--name` 参数

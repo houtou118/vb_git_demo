@@ -1,7 +1,9 @@
 import 'package:args/command_runner.dart';
 
+import 'commands/clone_command.dart';
 import 'commands/create_command.dart';
 import 'commands/delete_command.dart';
+import 'commands/merge_command.dart';
 import 'commands/pull_command.dart';
 import 'commands/push_command.dart';
 import 'commands/status_command.dart';
@@ -12,12 +14,14 @@ void main(List<String> args) async {
     'vb_git_helper',
     'VB App 分支管理工具',
   )
+    ..addCommand(VbGitCloneCommand())
     ..addCommand(VbGitBranchStatusCommand())
     ..addCommand(VbGitBranchSwitchCommand())
     ..addCommand(VbGitBranchPushCommand())
     ..addCommand(VbGitBranchPullCommand())
     ..addCommand(VbGitBranchDeleteCommand())
-    ..addCommand(VbGitBranchCreteCommand());
+    ..addCommand(VbGitBranchCreteCommand())
+    ..addCommand(VbGitBranchMergeCommand());
 
   try {
     final output = await runner.run(args);

@@ -8,7 +8,7 @@ import 'vb_command.dart';
 
 class VbGitBranchPushCommand extends Command<String> {
   VbGitBranchPushCommand() {
-    argParser.addOption('type', abbr: 't', help: '仓库类型 (all, bis, plugin)');
+    argParser.addOption('type', abbr: 't', help: '仓库类型 (all, bis, plugin, ft)');
   }
 
   @override
@@ -24,7 +24,7 @@ class VbGitBranchPushCommand extends Command<String> {
   FutureOr<String>? run() async {
     final type = argResults?['type'];
     if (type == null || type.isEmpty) {
-      print('$red错误: 必须提供 --type 参数来指定仓库类型(all, bis, plugin) $reset');
+      print('$red错误: 必须提供 --type 参数来指定仓库类型(all, bis, plugin, ft) $reset');
       return '';
     }
 

@@ -31,6 +31,7 @@ Future<void> switchGitBranch(String branchName, String type) async {
     if (!isCorrectDir) return;
 
     List<String> projectNames = getProjectNames(type);
+    print('projectNames: $projectNames');
 
     for (var projectName in projectNames) {
       final projectPath = findProjectPath(projectName);
@@ -43,10 +44,9 @@ Future<void> switchGitBranch(String branchName, String type) async {
       final switchResult = await Process.run('git', ['-C', projectPath, 'checkout', branchName]);
 
       if (switchResult.exitCode == 0) {
-        String projectStatus = (switchResult.stdout as String).trim();
-        print('$green$projectName :$reset\n$projectStatus\n');
+        print('$green$projectName  $reset $green成功切换到目标分支$reset : $branchName');
       } else {
-        print('$red切换到新分支失败: ${switchResult.stderr}$reset');
+        print('$green$projectName$reset: $red切换到新分支失败: ${switchResult.stderr}$reset');
       }
     }
 
