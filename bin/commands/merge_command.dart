@@ -62,7 +62,7 @@ class VbGitBranchMergeCommand extends Command<String> {
   }
 
   Future<void> mergeBranch(String projectPath, String branch, String type) async {
-    print('Merging branch $branch into current branch...');
+    print('$green$projectPath$reset Merging branch $branch into current branch...');
 
     final process = await Process.start(
       'git',
@@ -74,7 +74,7 @@ class VbGitBranchMergeCommand extends Command<String> {
     if (exitCode == 0) {
       print('Merge completed successfully.');
     } else {
-      print('Merge failed with exit code $exitCode.');
+      print('$red Merge failed with exit code $reset$exitCode.');
     }
   }
 }
